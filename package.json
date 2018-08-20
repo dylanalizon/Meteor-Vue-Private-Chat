@@ -2,7 +2,7 @@
   "name": "vue-meteor-test",
   "private": true,
   "scripts": {
-    "install": ".script/install.sh",
+    "install": "./install.sh",
     "start": "node .my_app/main.js",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
