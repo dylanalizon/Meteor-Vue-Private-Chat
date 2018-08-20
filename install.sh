@@ -27,10 +27,10 @@ cd "$currentPath"
 
 # demeteorize the app
 
-~/node_modules/.bin/demeteorizer -a "my_app" -o .my_app/
+~/node_modules/.bin/demeteorizer -a "my_app" -o my_app/
 # Go inside our demeteorized app to install modules
 
-cd .my_app/
+cd my_app/
 # Install modules
 
 npm install
