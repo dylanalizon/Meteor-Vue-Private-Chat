@@ -1,2 +1,2 @@
-cd .build/bundle/programs/server
+cd .build/bundle
 npm install
