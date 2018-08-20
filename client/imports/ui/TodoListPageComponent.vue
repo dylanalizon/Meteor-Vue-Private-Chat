@@ -19,7 +19,7 @@
                             </v-list-tile-content>
                             <v-list-tile-action>
                                 <v-btn icon @click="removeTask(task._id)">
-                                    <v-icon>delete_outline</v-icon>
+                                    <v-icon>delete</v-icon>
                                 </v-btn>
                             </v-list-tile-action>
                         </v-list-tile>
