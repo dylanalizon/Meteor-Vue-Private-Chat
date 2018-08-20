@@ -1,2 +1,2 @@
-cd .build
-npm install
+cd .build/bundle/programs/server
+npm install --production
