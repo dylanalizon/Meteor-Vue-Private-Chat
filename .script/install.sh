@@ -1,2 +1,2 @@
 cd .build
-npm installg
+npm install
