@@ -10,4 +10,7 @@ cache:
 before_install:
   - curl https://install.meteor.com | /bin/sh
 
+after_success:
+  - .travis/push.sh
+
 sudo: required
