@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
-import '/lib/api/messages'
-import '/lib/api/tasks.js'
+import '../imports/api/messages'
+import '../imports/api/tasks'
 
 Meteor.startup(() => {
 

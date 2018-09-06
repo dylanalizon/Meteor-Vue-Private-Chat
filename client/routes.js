@@ -1,7 +1,7 @@
-import HomePage from './imports/ui/HomePageComponent'
-import NotFoundPage from './imports/ui/NotFoundPageComponent'
-import ChatPage from './imports/ui/ChatPageComponent'
-import TodoListPage from './imports/ui/TodoListPageComponent'
+import HomePage from '../imports/ui/HomePageComponent'
+import NotFoundPage from '../imports/ui/NotFoundPageComponent'
+import ChatPage from '../imports/ui/ChatPageComponent'
+import TodoListPage from '../imports/ui/TodoListPageComponent'
 
 const titleDefault = 'Application Meteor par Dylan ALIZON'
 

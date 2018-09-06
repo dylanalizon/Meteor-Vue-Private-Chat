@@ -33,7 +33,7 @@
             <v-toolbar-title>Meteor Application</v-toolbar-title>
             <v-spacer></v-spacer>
             <span v-if="user">
-                {{ user.username }}!
+                {{ user.username }}
             </span>
             <v-menu v-if="!user" :close-on-content-click="false" :nudge-bottom="15" lazy origin="top right" offset-y>
                 <v-btn slot="activator" icon large class="white--text">

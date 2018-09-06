@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-btn @click="testInsert">
+        <v-btn>
             Test insertion
         </v-btn>
     </div>
