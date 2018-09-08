@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
-import Vue from 'vue'
+import { UserSchema } from '/imports/api/users'
 
 export default {
     state: {
