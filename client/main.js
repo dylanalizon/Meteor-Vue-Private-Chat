@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import {Meteor} from 'meteor/meteor'
 import App from '../imports/ui/AppComponent'
-import VueMeteorTracker from 'vue-meteor-tracker'
-import '../imports/configs/vuetify.config'
-import router from '../imports/configs/router.config'
-import store from '../imports/configs/vuex.config'
-import Notifications from 'vue-notification'
-import '../imports/api/messages'
+
+//Config
+import '../imports/ui/configs/vue-meteor-tracker.config'
+import '../imports/ui/configs/vue-mq.config'
+import '../imports/ui/configs/vue-notification.config'
+import router from '../imports/ui/configs/vue-router.config'
+import '../imports/ui/configs/vuetify.config'
+import store from '../imports/ui/configs/vuex.config'
 
 Meteor.startup(() => {
-
-    Vue.use(VueMeteorTracker)
-    Vue.use(Notifications)
+    $('html').attr('lang', 'fr')
 
     new Vue({
         router,

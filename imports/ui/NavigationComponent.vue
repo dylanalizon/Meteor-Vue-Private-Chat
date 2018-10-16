@@ -10,13 +10,18 @@
                         <v-list-tile-title>Home</v-list-tile-title>
                     </v-list-tile-content>
                 </router-link>
-                <router-link to="/chat" tag="v-list-tile">
+                <router-link to="/chat" tag="v-list-tile" v-if="user" :class="this.$route.name === 'conversation' ? 'router-link-exact-active' : ''">
                     <v-list-tile-action>
                         <v-icon>chat</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
                         <v-list-tile-title>Chat</v-list-tile-title>
                     </v-list-tile-content>
+                    <v-list-tile-action v-if="unread > 0">
+                        <v-badge left>
+                            <span slot="badge">{{ unread }}</span>
+                        </v-badge>
+                    </v-list-tile-action>
                 </router-link>
                 <router-link to="/todo-list" tag="v-list-tile">
                     <v-list-tile-action>
@@ -79,12 +84,15 @@
 </template>
 
 <script>
-    import Login from './Users/LoginComponent'
-    import Register from './Users/RegisterComponent'
+    import Login from './Components/Users/LoginComponent'
+    import Register from './Components/Users/RegisterComponent'
     import { mapGetters } from 'vuex'
 
     export default {
         name: 'Navigation',
+        props: {
+            unread: Number
+        },
         data () {
             return {
                 drawer: null,

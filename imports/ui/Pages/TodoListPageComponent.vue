@@ -1,28 +1,30 @@
 <template>
-    <v-layout row>
-        <v-flex xs12 sm6 offset-sm3>
-            <v-form @submit.prevent="addTask" v-if="user">
-                <v-text-field label="Ajouter un tâche" v-model="newTask" required></v-text-field>
-            </v-form>
-            <v-checkbox color="primary" label="Cacher tâches complétées" v-model="hideCompletedTask"></v-checkbox>
-            <v-card>
-                <v-toolbar color="primary" class="white--text todolist-header">
-                    <v-toolbar-title><h1>Todo List ({{ incompleteCount }})</h1></v-toolbar-title>
-                </v-toolbar>
-                <v-list>
-                    <template v-for="(task, index) in filteredTasks">
-                        <Task :task="task"></Task>
-                        <v-divider v-if="index < filteredTasks.length - 1"></v-divider>
-                    </template>
-                </v-list>
-            </v-card>
-        </v-flex>
-    </v-layout>
+    <v-container>
+        <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+                <v-form @submit.prevent="addTask" v-if="user">
+                    <v-text-field label="Ajouter un tâche" v-model="newTask" required></v-text-field>
+                </v-form>
+                <v-checkbox color="primary" label="Cacher tâches complétées" v-model="hideCompletedTask"></v-checkbox>
+                <v-card>
+                    <v-toolbar color="primary" class="white--text card-header">
+                        <v-toolbar-title><h1>Todo List ({{ incompleteCount }})</h1></v-toolbar-title>
+                    </v-toolbar>
+                    <v-list>
+                        <template v-for="(task, index) in filteredTasks">
+                            <Task :task="task"></Task>
+                            <v-divider v-if="index < filteredTasks.length - 1"></v-divider>
+                        </template>
+                    </v-list>
+                </v-card>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
 
 <script>
     import { TasksCollection } from '/imports/api/tasks'
-    import Task from './TaskComponent'
+    import Task from '../Components/TodoList/TaskComponent'
     import { mapGetters } from 'vuex'
     import { Meteor } from 'meteor/meteor'
 

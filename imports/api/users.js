@@ -1,7 +1,7 @@
 import SimpleSchema from 'simpl-schema'
 import { Meteor } from 'meteor/meteor'
 
-export const UserSchema = {};
+const UserSchema = {};
 
 UserSchema.UserProfile = new SimpleSchema({
     prenom: {
@@ -52,3 +52,15 @@ UserSchema.User = new SimpleSchema({
 })
 
 Meteor.users.attachSchema(UserSchema.User)
+
+if (Meteor.isServer) {
+    Meteor.publish('users', function () {
+        return Meteor.users.find({},{
+            fields : {
+                _id: 1,
+                username: 1,
+                profile: 1
+            }
+        })
+    })
+}

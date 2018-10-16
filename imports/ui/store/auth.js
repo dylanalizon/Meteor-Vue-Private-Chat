@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
-import { UserSchema } from '/imports/api/users'
+import router from '/imports/ui/configs/vue-router.config'
+import isLogged from '../../helpers/isLogged'
 
 export default {
     state: {
@@ -12,15 +13,25 @@ export default {
         }
     },
     mutations: {
-        updateUser (state, value) {
+        setUser (state, value) {
             state.user = value
         }
     },
     actions: {
+        updateUser (context) {
+            isLogged().then(response => {
+                if (response) {
+                    this.commit('setUser', Meteor.user())
+                }
+            })
+        },
         submitRegisterForm (context, formData) {
             Accounts.createUser(formData, error => {
-                error ? console.log(error.reason) : console.log('Utilisateur enregistré')
-                this.commit('updateUser', Meteor.user())
+                if(error){
+                    console.log(error)
+                }else{
+                    this.commit('setUser', Meteor.user())
+                }
             })
         },
         submitLoginForm (context, formData) {
@@ -36,17 +47,20 @@ export default {
                         text: 'Vous êtes bien connecté',
                         type: 'success'
                     })
-                    this.commit('updateUser', Meteor.user())
+                    this.commit('setUser', Meteor.user())
                 }
             })
         },
         logout () {
             Meteor.logout(() => {
+                if(router.currentRoute.meta.auth){
+                    router.push({name: 'homepage'})
+                }
                 this.dispatch('sendNotification', {
                     text: 'Vous êtes bien déconnecté',
                     type: 'success'
                 })
-                this.commit('updateUser', null)
+                this.commit('setUser', null)
             })
         }
     }

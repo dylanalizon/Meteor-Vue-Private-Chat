@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-container>
         <h1>{{ greeting }}</h1>
 
         <v-btn @click="count" color="primary">
@@ -9,7 +9,7 @@
         <p>
             You've clicked: {{ counter }} times.
         </p>
-    </div>
+    </v-container>
 </template>
 
 <script>
